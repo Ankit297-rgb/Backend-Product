@@ -2,11 +2,11 @@ def validate_product_input(data):
     if not isinstance(data, dict):
         return "Invalid input format. JSON expected."
 
-    # Validate product name
+    
     if 'name' not in data or not isinstance(data['name'], str) or not data['name'].strip():
         return "Product name is required and must be a non-empty string."
 
-    # Validate price per unit
+    
     if 'price_per_unit' not in data:
         return "Price per unit is required."
     if not isinstance(data['price_per_unit'], (int, float)):
@@ -14,7 +14,7 @@ def validate_product_input(data):
     if data['price_per_unit'] <= 0:
         return "Price per unit must be a positive number."
 
-    # Validate unit
+    
     if 'unit' not in data or not isinstance(data['unit'], str) or not data['unit'].strip():
         return "Unit is required and must be a non-empty string."
 
@@ -24,11 +24,11 @@ def validate_order_input(data):
     if not isinstance(data, dict):
         return "Invalid input format. JSON expected."
 
-    # Validate customer name
+    
     if 'customer_name' not in data or not isinstance(data['customer_name'], str) or not data['customer_name'].strip():
         return "Customer name is required and must be a non-empty string."
 
-    # Validate items
+    
     if 'items' not in data or not isinstance(data['items'], list) or not data['items']:
         return "Order must contain at least one item."
 

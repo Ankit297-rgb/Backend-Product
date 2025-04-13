@@ -4,7 +4,7 @@ from app.models import Order, OrderItem, Product
 def place_order(data):
     order = Order(customer_name=data['customer_name'])
     db.session.add(order)
-    db.session.flush()  # So we can use order.id before committing
+    db.session.flush()  
 
     total = 0
     for item in data['items']:

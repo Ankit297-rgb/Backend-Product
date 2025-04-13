@@ -9,16 +9,16 @@ orders_bp = Blueprint('orders', __name__)
 def place_order():
     data = request.get_json()
 
-    # Validate input
+    
     error = validate_order_input(data)
     if error:
         return jsonify({"error": error}), 400
 
     try:
-        # Create order
+        
         order = Order(customer_name=data['customer_name'])
         db.session.add(order)
-        db.session.flush()  # Get order.id before commit
+        db.session.flush()  
 
         total = 0
 
@@ -68,7 +68,7 @@ def get_orders():
         for item in items:
             product = Product.query.get(item.product_id)
             if not product:
-                continue  # skip invalid product references
+                continue  
 
             price = product.price_per_unit * item.quantity
             total += price
