@@ -1,5 +1,6 @@
 from app import db
 
+
 # Product Model
 class Product(db.Model):
     __tablename__ = 'product'
